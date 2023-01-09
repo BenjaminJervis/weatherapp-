@@ -6,7 +6,7 @@
 
 header {
 	text-align: center;
-	color: blueviolet;
+	color: black;
 	padding: 20px;
 	
 }
@@ -16,7 +16,7 @@ header {
 }
 
 .sidebar {
-	background-color: none;
+	background-color: grey;
 	padding: 10px;
 }
 
