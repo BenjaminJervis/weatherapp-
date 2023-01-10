@@ -47,12 +47,12 @@ if (localStorage.getItem("city")) {
 		method: "GET",
 	}).then(function (response) {
 		console.log(response);
-		lat = response.coord.lat; //lat and lon data displayed here 
+		lat = response.coord.lat; //lat and longtitude data displayed here 
 		lon = response.coord.lon;
 	}
 
 	)
-	var cityItem = $("<li>"); // render to below the weather dashboard header 
+	var cityItem = $("<li>"); //This will render to below the weather dashboard header 
 	cityItem.addClass("list-group-item city-item");
 	cityItem.text(response.name);
 	cityItem.attr("lat", response.coord.lat); //append the latitude data 
