@@ -1,9 +1,9 @@
 
 var APIKey = "248d7de9bed9fdf91deaad258386e3f8";
 
-//searchCity = document.getElementById ("search-city") 
-//citySearch = document.getElementById ("city-input")
-//searchCity.addEventListener("click",handleWeatherSearch);
+searchCity = document.getElementById ("search-city") 
+citySearch = document.getElementById ("city-input")
+searchCity.addEventListener("click",handleWeatherSearch);
 //function handleWeatherSearch (){
 	//console.log("handleWeatherSearch!")
 	//if(!citySearch.value){
