@@ -1,5 +1,7 @@
 
 var APIKey = "248d7de9bed9fdf91deaad258386e3f8"; //open weather api key added 
+var displayWeather
+
 
 
 searchCity = document.getElementById ("search-city") 
@@ -23,7 +25,7 @@ function fetchGeoLocation(city){ // function to display geo location data lat an
 		return response.json();
 	})
 	.then(function (data){
-		if (!data[0]){
+		if (!data[1]){
 			alert ("city not found");
 		}
 		else {
@@ -35,8 +37,9 @@ function fetchGeoLocation(city){ // function to display geo location data lat an
 	.catch(function(err){
 		console.log(err);
 		
-	}
-	)
+	})
+
+}
 
 function addToHistory(city){ //function to add weather data to local storage 
 	//to be completed
@@ -72,60 +75,17 @@ function displayWeather(response) {
 	//get current date
 	var currentDate = moment().format("L");
 	// render city name, current date and weather icon
-	$("#card-title").text(`${response.name} (${currentDate})`);
+	$(".card-title").text(`${response.name} (${currentDate})`);
 	var weatherIcon = $("<img>");
-	var iconCode = response.weather[0].icon;
-	var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+	var iconCode = response.weather[1].icon;
+	var iconUrl = "http://api.openweathermap.org/img/wn/" + iconCode + ".png";
 	weatherIcon.attr("src", iconUrl);
-	$("#card-title").append(weatherIcon);
+	$(".card-title").append(weatherIcon);
 
 }
-}
 
-function renderForecast(response) {
-	$("#forecast").empty();
-	// Render 5-day forecast
-	// var n = 5;
-	var days = response.daily;
-	// get the 2nd - 6th index of the daily array of the response
-	days.slice(1, 6).map((day) => {
-		var dayCard = $("<div>");
-		dayCard.addClass("card col-md-4 daycard");
-		// dayCard.css("width", "18rem");
-		dayCard.css("background-color", "orange");
-		dayCard.css("margin-right", "5px");
-		dayCard.css("font-size", "15px");
+displayWeather()
 
-		var dayCardBody = $("<div>");
-		dayCardBody.addClass("card-body");
-		dayCard.append(dayCardBody);
-
-		var dayCardName = $("<h6>");
-		dayCardName.addClass("card-title");
-		// take the date of the response object and format it to (MM/DD/YYYY)
-		var datestamp = moment.unix(day.dt);
-		var forecastDate = datestamp.format("L");
-		dayCardName.text(forecastDate);
-		dayCardBody.append(dayCardName);
-
-		//take the icon of the response object and set the url to the src of the iconURL
-		var weatherIcon = $("<img>");
-		var iconCode = day.weather[0].icon;
-		var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
-		weatherIcon.attr("src", iconUrl);
-		dayCardBody.append(weatherIcon);
-
-		var dayTemp = $("<p>");
-		dayTemp.text(`Temp: ${day.temp.max} \xB0F`);
-		dayCardBody.append(dayTemp);
-
-		var dayHumidity = $("<p>");
-		dayHumidity.text(`Humidity: ${day.humidity}%`);
-		dayCardBody.append(dayHumidity);
-
-		$("#forecast").append(dayCard);
-	});
-}
 
 
 	
