@@ -19,12 +19,12 @@ function fetchGeoLocation(city){
 	let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${APIKey}`;
 	fetch (url)
 	.then(function (response){
-		//return response.json();
+		return response.json();
 	})
-	//.then(function (data){
-		//if (!data[0]){
-			//alert ("city not found");
-		//}
+	.then(function (data){
+		if (!data[0]){
+			alert ("city not found");
+		}
 		//else {
 			//console.log("data = ", data)
 			//addToHistory(city);
