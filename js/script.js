@@ -1,19 +1,17 @@
 
-
-
-var APIKey = "248d7de9bed9fdf91deaad258386e3f8";
+var APIKey = "248d7de9bed9fdf91deaad258386e3f8"; //open weather api key added 
 
 searchCity = document.getElementById ("search-city") 
 citySearch = document.getElementById ("city-input")
-searchCity.addEventListener("click",handleWeatherSearch);
-function handleWeatherSearch (){
+searchCity.addEventListener("click",handleWeatherSearch); //on click for serach button added 
+function handleWeatherSearch (){ //function added to fetch weather data
 	//console.log("handleWeatherSearch!")
 	if(!citySearch.value){
 		return;
 	} 
 	let city = citySearch.value.trim();
 	//console.log("city = ", city);
-	fetchGeoLocation (city);
+	fetchGeoLocation (city); //function added to fetch geolocation of city i am searching 
 }
 
 function fetchGeoLocation(city){
@@ -27,32 +25,32 @@ function fetchGeoLocation(city){
 		if (!data[0]){
 			alert ("city not found");
 		}
-		//else {
+		else {
 			//console.log("data = ", data)
-			//addToHistory(city);
-			//fetchWeatherForcast(data[0]);
-		//}
-	//})
+			addToHistory(city);
+			fetchWeatherForcast(data[0]);
+		}
+	})
 	//.catch(function(err){
 		//console.log(err);
 		
-	//})	
+	}
+
+function addToHistory(city){ //function to add weather data to local storage 
+	
 }
-//function addToHistory(city){
-	//to be completed 
-//}
-//function fetchWeatherForcast(data){
-	//to be completed 
-	//let {lat}=data;
-	//let {lon}=data;
-	//let city = data.name;
-	//let weatherURL=`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+function fetchWeatherForcast(data){ //function to display the 5 day weather forcast 
+	
+	let {lat}=data;
+	let {lon}=data;
+	let city = data.name;
+	let weatherURL=`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
-	//fetch (weatherURL)
-	//.then(function(response){
-		//return response.json();
+	fetch (weatherURL)
+	.then(function(response){
+		return response.json();
 
-	//})
+	})
 	//.then(function (data){
 		//console.log("weatherData= ", data);
 		//displayWeather(city, data)
@@ -60,7 +58,7 @@ function fetchGeoLocation(city){
 	//.catch(function (err){
 		//console.error(err)
 	//})
-//};
+};
 //function displayWeather (city, data){
 	//to be completed 
 //}
