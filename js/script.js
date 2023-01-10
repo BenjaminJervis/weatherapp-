@@ -4,15 +4,15 @@ var APIKey = "248d7de9bed9fdf91deaad258386e3f8";
 searchCity = document.getElementById ("search-city") 
 citySearch = document.getElementById ("city-input")
 searchCity.addEventListener("click",handleWeatherSearch);
-//function handleWeatherSearch (){
+function handleWeatherSearch (){
 	//console.log("handleWeatherSearch!")
-	//if(!citySearch.value){
-		//return;
-	//} 
+	if(!citySearch.value){
+		return;
+	} 
 	//let city = citySearch.value.trim();
 	//console.log("city = ", city);
 	//fetchGeoLocation (city);
-//}
+}
 
 //function fetchGeoLocation(city){
 	//console.log ("fetchGeoLocation: city = ", city);
