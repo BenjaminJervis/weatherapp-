@@ -14,13 +14,13 @@ function handleWeatherSearch (){
 	fetchGeoLocation (city);
 }
 
-//function fetchGeoLocation(city){
+function fetchGeoLocation(city){
 	//console.log ("fetchGeoLocation: city = ", city);
-	//let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${APIKey}`;
-	//fetch (url)
-	//.then(function (response){
+	let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${APIKey}`;
+	fetch (url)
+	.then(function (response){
 		//return response.json();
-	//})
+	})
 	//.then(function (data){
 		//if (!data[0]){
 			//alert ("city not found");
@@ -35,7 +35,7 @@ function handleWeatherSearch (){
 		//console.log(err);
 		
 	//})	
-//}
+}
 //function addToHistory(city){
 	//to be completed 
 //}
