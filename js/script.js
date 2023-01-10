@@ -9,9 +9,9 @@ function handleWeatherSearch (){
 	if(!citySearch.value){
 		return;
 	} 
-	//let city = citySearch.value.trim();
+	let city = citySearch.value.trim();
 	//console.log("city = ", city);
-	//fetchGeoLocation (city);
+	fetchGeoLocation (city);
 }
 
 //function fetchGeoLocation(city){
